@@ -69,11 +69,13 @@ function App() {
   };
   return (
     <div className="container">
-      <img
-        alt="weather"
-        className="background-image"
-        src={`icons/${currentWeather.weather[0].icon}.jpg`}
-      />
+      {currentWeather && (
+        <img
+          alt="weather"
+          className="background-image"
+          src={`icons/${currentWeather.weather[0].icon}.jpg`}
+        />
+      )}
       <Search onSearchChange={handleOnSearchChange} defaultCity={defaultCity} />
       {currentWeather && <CurrentWeather data={currentWeather} />}
       {forecast && <Forecast data={forecast} />}
